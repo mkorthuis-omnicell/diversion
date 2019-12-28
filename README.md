@@ -1,4 +1,9 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Setup Instructions
+`npm install`
+`npm install node-sass -S`
+`npm install eslint -g`
+`npm i eslint-config-airbnb` in home directory
+
 
 ## Available Scripts
 

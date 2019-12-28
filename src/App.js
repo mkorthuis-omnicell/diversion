@@ -1,25 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+} from 'react-router-dom';
+
+import AppBar from '@material-ui/core/AppBar';
+
+import { makeStyles } from '@material-ui/core/styles';
+
+import TopNav from './components/common/topNav';
+import SecondNav from './components/common/secondNav';
+import Route from './components/route';
+
+
+import './App.scss';
+
+const useStyles = makeStyles((theme) => ({
+  appBar: {
+    backgroundColor: '#1B4104',
+  },
+  grow: {
+    flexGrow: 1,
+  },
+
+}));
 
 function App() {
+  const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className={classes.grow}>
+        <AppBar position="static" className={classes.appBar}>
+          <TopNav />
+          <SecondNav />
+        </AppBar>
+        <Route />
+      </div>
+    </Router>
   );
 }
 
