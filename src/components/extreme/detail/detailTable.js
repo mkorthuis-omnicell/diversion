@@ -117,7 +117,7 @@ const DetailTable = function (props) {
     <Table>
       {props.rows.map((row) => (
         <TableBody key={row.name}>
-          <TableRow className={classes.headerRowOne}>
+          <TableRow>
             <TableCell className={classes.headerCell} />
             <TableCell className={classes.headerCell} />
             <TableCell className={classes.headerCell}>Usage</TableCell>

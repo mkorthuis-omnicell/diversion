@@ -8,6 +8,8 @@ const useStyles = makeStyles((theme) => ({
   titleBox: {
     paddingTop: '30px',
     marginBottom: '20px',
+    paddingLeft: '0px',
+    paddingRight: '0px',
   },
   logo: {
     paddingBottom: '0px',

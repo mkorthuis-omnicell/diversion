@@ -21,6 +21,12 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: '#F6F6F6',
     },
   },
+  cardNoLink: {
+    maxWidth: 275,
+    minWidth: 275,
+    minHeight: 150,
+    boxShadow: '0px 2px 10px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12)',
+  },
   title: {
     textAlign: 'center',
   },
@@ -38,24 +44,49 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+function DiversionContent(props) {
+  const classes = useStyles();
+  return (
+    <Link to={props.link} className={classes.link}>
+      <Card className={classes.card}>
+        <CardContent>
+          <Typography className={classes.title} color="textSecondary" gutterBottom>
+            {props.name}
+          </Typography>
+          <Typography className={classes.number}>
+            {props.count}
+          </Typography>
+        </CardContent>
+      </Card>
+    </Link>
+  );
+}
+
+function DiversionContentNoLink(props) {
+  const classes = useStyles();
+  return (
+    <Card className={classes.cardNoLink}>
+      <CardContent>
+        <Typography className={classes.title} color="textSecondary" gutterBottom>
+          {props.name}
+        </Typography>
+        <Typography className={classes.number}>
+          {props.count}
+        </Typography>
+      </CardContent>
+    </Card>
+  );
+}
+
 
 function DiversionCard(props) {
   const classes = useStyles();
   return (
     <Grid item md={4}>
       <div className={classes.centerCard}>
-        <Link to="/category" className={classes.link}>
-          <Card className={classes.card}>
-            <CardContent>
-              <Typography className={classes.title} color="textSecondary" gutterBottom>
-                {props.name}
-              </Typography>
-              <Typography className={classes.number}>
-                {props.count}
-              </Typography>
-            </CardContent>
-          </Card>
-        </Link>
+        {props.link
+          ? (<DiversionContent {...props} />)
+          : <DiversionContentNoLink {...props} />}
       </div>
     </Grid>
   );

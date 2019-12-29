@@ -7,8 +7,8 @@ import Box from '@material-ui/core/Box';
 import Paper from '@material-ui/core/Paper';
 
 import { makeStyles } from '@material-ui/core/styles';
-import TitleBar from '../common/titleBar';
-import UsageKey from '../common/usageKey';
+import TitleBar from '../../common/titleBar';
+import UsageKey from '../../common/usageKey';
 import DetailTable from './detailTable';
 
 const useStyles = makeStyles((theme) => ({
@@ -84,7 +84,7 @@ const UserMobile = function (props) {
 function Detail() {
   const classes = useStyles();
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="xl">
       <TitleBar name="High and Extreme Users > User Detail" icon="/image/diversion-logo.png" />
       <Hidden smDown>
         <Box display="flex" p={1}>

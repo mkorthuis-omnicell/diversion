@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
@@ -7,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import FilterListIcon from '@material-ui/icons/FilterList';
 
 import { makeStyles } from '@material-ui/core/styles';
+import { useStore } from '../../store';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -28,15 +30,23 @@ const useStyles = makeStyles((theme) => ({
 
 function SecondNav() {
   const classes = useStyles();
-  return (
-    <Toolbar className={classes.secondBar}>
-      <Typography className={classes.client}>
+
+  const [{ loggedIn }] = useStore();
+
+  if (loggedIn) {
+    return (
+      <Toolbar className={classes.secondBar}>
+        <Typography className={classes.client}>
               Three Rivers Hospital
-      </Typography>
-      <IconButton className={classes.secondIconBar}>
-        <FilterListIcon className={classes.menuIcon} />
-      </IconButton>
-    </Toolbar>
+        </Typography>
+        <IconButton className={classes.secondIconBar}>
+          <FilterListIcon className={classes.menuIcon} />
+        </IconButton>
+      </Toolbar>
+    );
+  }
+  return (
+    <Toolbar className={classes.secondBar} />
   );
 }
 

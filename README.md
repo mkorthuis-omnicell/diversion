@@ -5,6 +5,16 @@
 `npm i eslint-config-airbnb` in home directory
 
 
+## For Heroku
+`npx create-react-app@2.x $APP_NAME
+cd $APP_NAME
+git init
+heroku create $APP_NAME --buildpack mars/create-react-app
+git add .
+git commit -m "Insert your message here"
+git push heroku master
+heroku open
+`
 ## Available Scripts
 
 In the project directory, you can run:

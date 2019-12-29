@@ -7,10 +7,10 @@ import Hidden from '@material-ui/core/Hidden';
 
 
 import { makeStyles } from '@material-ui/core/styles';
-import TitleBar from '../common/titleBar';
+import TitleBar from '../../common/titleBar';
 import UserCard from './userCard';
 import UserTable from './userTable';
-import UsageKey from '../common/usageKey';
+import UsageKey from '../../common/usageKey';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -33,7 +33,6 @@ const rows = [
   createData('John Smith', 'Extreme', 'Nurse', '#CD130A', '#FFC444', '/image/up-down.png'),
 ];
 
-
 const UserCards = function (props) {
   return (
     <Grid
@@ -50,7 +49,7 @@ const UserCards = function (props) {
 function Category() {
   const classes = useStyles();
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="xl">
       <TitleBar name="High and Extreme Users" icon="/image/diversion-logo.png" />
       <Hidden smDown>
         <Box display="flex" p={1}>

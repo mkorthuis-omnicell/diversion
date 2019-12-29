@@ -7,12 +7,14 @@ import AppBar from '@material-ui/core/AppBar';
 
 import { makeStyles } from '@material-ui/core/styles';
 
+import { StoreProvider } from './store';
+import reducers from './reducers';
+import initialState from './store/initialState';
+
 import TopNav from './components/common/topNav';
 import SecondNav from './components/common/secondNav';
 import Route from './components/route';
 
-
-import './App.scss';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -27,15 +29,17 @@ const useStyles = makeStyles((theme) => ({
 function App() {
   const classes = useStyles();
   return (
-    <Router>
-      <div className={classes.grow}>
-        <AppBar position="static" className={classes.appBar}>
-          <TopNav />
-          <SecondNav />
-        </AppBar>
-        <Route />
-      </div>
-    </Router>
+    <StoreProvider initialState={initialState} reducer={reducers}>
+      <Router>
+        <div className={classes.grow}>
+          <AppBar position="static" className={classes.appBar}>
+            <TopNav />
+            <SecondNav />
+          </AppBar>
+          <Route />
+        </div>
+      </Router>
+    </StoreProvider>
   );
 }
 
