@@ -57,9 +57,6 @@ function NoLoginNav() {
       <IconButton className={classes.iconBar}>
         <img className={classes.image} src={`${process.env.PUBLIC_URL}/image/logo.png`} alt="" />
       </IconButton>
-      <Typography className={classes.essentialsText}>
-              One Essentials
-      </Typography>
     </Toolbar>
   );
 }
@@ -94,7 +91,7 @@ function LoginNav() {
         <img className={classes.image} src={`${process.env.PUBLIC_URL}/image/logo.png`} alt="" />
       </IconButton>
       <Typography className={classes.essentialsText}>
-              One Essentials
+              Essentials
       </Typography>
       <IconButton className={classes.iconBar}>
         <SettingsIcon className={classes.settingsIcon} />
