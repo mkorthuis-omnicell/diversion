@@ -13,31 +13,36 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   card: {
-    maxWidth: 275,
     minWidth: 275,
     minHeight: 150,
-    boxShadow: '0px 2px 10px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12)',
+    backgroundColor: '#2F3849',
+    boxShadow: 'none',
+    borderRadius: '0px',
     '&:hover': {
-      backgroundColor: '#F6F6F6',
+      backgroundColor: '#283040',
     },
   },
   cardNoLink: {
     maxWidth: 275,
     minWidth: 275,
     minHeight: 150,
-    boxShadow: '0px 2px 10px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12)',
+    boxShadow: 'none',
+    borderRadius: '0px',
+    backgroundColor: '#2F3849',
   },
   title: {
     textAlign: 'center',
+    fontSize: '20px',
+    color: '#55B556',
+    paddingTop: '10px',
   },
   number: {
     textAlign: 'center',
     fontSize: '60px',
-    color: '#55B556',
+    color: '#FFF',
   },
   centerCard: {
-    display: 'flex',
-    justifyContent: 'center',
+
   },
   link: {
     textDecoration: 'none',

@@ -1,17 +1,15 @@
 
 import React, { useState } from 'react';
 
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import Button from '@material-ui/core/Button';
 
-import HomeIcon from '@material-ui/icons/HomeOutlined';
 import MenuIcon from '@material-ui/icons/MenuOutlined';
-import SettingsIcon from '@material-ui/icons/SettingsOutlined';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -21,10 +19,16 @@ import { login } from '../../actions';
 
 const useStyles = makeStyles((theme) => ({
   toolBar: {
-    minHeight: '30px',
+    minHeight: '64px',
+    background: '#2F3849',
   },
   iconBar: {
     padding: '10px',
+    paddingTop: '0px',
+    paddingBottom: '0px',
+    '&:hover': {
+      backgroundColor: 'initial',
+    },
   },
   grow: {
     flexGrow: 1,
@@ -33,19 +37,62 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
     color: '#55B556',
   },
-  essentialsText: {
-    paddingRight: '30px',
-    color: '#ECFBEA',
+  linkText: {
+    paddingLeft: '40px',
+    paddingRight: '40px',
+    color: '#F8F8F9',
+    fontSize: '16px',
+    textTransform: 'none',
+    height: '56px',
+    transition: 'none',
+    borderRadius: '0px',
+    '&:hover': {
+      backgroundColor: 'initial',
+      borderTop: '4px solid #2F3849',
+      borderBottom: '4px solid #46B555',
+    },
   },
+  logoffLink: {
+    borderLeft: '1px solid #5E6A71',
+    borderRight: '1px solid #5E6A71',
+    transition: 'none',
+    borderRadius: '0px',
+    height: '56px',
+    textTransform: 'none',
+    marginRight: '20px',
+    '&:hover': {
+      backgroundColor: 'initial',
+      borderTop: '4px solid #2F3849',
+      borderBottom: '4px solid #46B555',
+    },
+  },
+  logoff: {
+    width: '100px',
+    textAlign: 'center',
+    color: '#F8F8F9',
+    fontSize: '16px',
+    lineHeight: '1',
+  },
+  logoffName: {
+    textAlign: 'center',
+    color: '#F8F8F9',
+    fontSize: '10px',
+    lineHeight: '1',
+  },
+
   settingsIcon: {
     color: '#ECFBEA',
   },
   menuIcon: {
     color: '#ECFBEA',
   },
-  image: {
-    height: '28px',
+  imageIcon: {
+    height: '50px',
     paddingRight: '10px',
+  },
+  imageText: {
+    height: '16px',
+    paddingRight: '30px',
   },
 }));
 
@@ -53,10 +100,11 @@ function NoLoginNav() {
   const classes = useStyles();
   return (
     <Toolbar className={classes.toolBar}>
-      <div className={classes.grow} />
-      <IconButton className={classes.iconBar}>
-        <img className={classes.image} src={`${process.env.PUBLIC_URL}/image/logo.png`} alt="" />
+      <IconButton className={classes.iconBar} disableRipple>
+        <img className={classes.imageIcon} src={`${process.env.PUBLIC_URL}/image/LogoOnly_Green.svg`} alt="" />
+        <img className={classes.imageText} src={`${process.env.PUBLIC_URL}/image/Product_OmnicellOne.svg`} alt="" />
       </IconButton>
+      <div className={classes.grow} />
     </Toolbar>
   );
 }
@@ -70,10 +118,6 @@ function LoginNav() {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleHome = (event) => {
-    history.push('/feature');
-  };
-
   const handleClose = () => {
     dispatch(login(false, 'You Have Logged Out'));
     history.push('/login');
@@ -83,19 +127,27 @@ function LoginNav() {
   const classes = useStyles();
   return (
     <Toolbar className={classes.toolBar}>
-      <IconButton className={classes.iconBar} onClick={handleHome}>
-        <HomeIcon className={classes.homeButton} />
+      <IconButton component={Link} to="/dashboard" className={classes.iconBar} disableRipple>
+        <img className={classes.imageIcon} src={`${process.env.PUBLIC_URL}/image/LogoOnly_Green.svg`} alt="" />
+        <img className={classes.imageText} src={`${process.env.PUBLIC_URL}/image/Product_OmnicellOne.svg`} alt="" />
       </IconButton>
+      <Button component={Link} to="/category" className={classes.linkText} disableRipple>
+                Excessive Users
+      </Button>
+      <Button component={Link} to="/discrepancy" className={classes.linkText} disableRipple>
+              Unresolved Discrepancies
+      </Button>
+      <Button component={Link} to="/waste" className={classes.linkText} disableRipple>
+              Whole Dose Waste
+      </Button>
       <div className={classes.grow} />
-      <IconButton className={classes.iconBar}>
-        <img className={classes.image} src={`${process.env.PUBLIC_URL}/image/logo.png`} alt="" />
-      </IconButton>
-      <Typography className={classes.essentialsText}>
-              Essentials
-      </Typography>
-      <IconButton className={classes.iconBar}>
-        <SettingsIcon className={classes.settingsIcon} />
-      </IconButton>
+
+      <Button onClick={handleClose} className={classes.logoffLink} disableRipple>
+        <div>
+          <div className={classes.logoff}>Log off</div>
+          <div className={classes.logoffName}>Mallory Reyes</div>
+        </div>
+      </Button>
       <IconButton className={classes.iconBar} onClick={handleClick}>
         <MenuIcon className={classes.menuIcon} />
       </IconButton>

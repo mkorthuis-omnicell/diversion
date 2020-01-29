@@ -39,28 +39,31 @@ function PatientInfo() {
   	},
   	identifier: {
   		fontSize: '12px',
-  		color: '#666666',
+  		color: '#FFFFFF',
   		fontWeight: 'bold',
   	},
+    content: {
+      color: '#46B555',
+    },
   }))();
   return (
     <Box className={classes.box} display="flex" flexDirection="row" p={1} m={1}>
       <Box p={1}>
         <div>
           <div className={classes.identifier}>Patient</div>
-          <div>BENBOOM, JANEE</div>
+          <div className={classes.content}>BENBOOM, JANEE</div>
         </div>
       </Box>
       <Box p={1}>
         <div>
           <div className={classes.identifier}>Id</div>
-          <div>0177725645</div>
+          <div className={classes.content}>0177725645</div>
         </div>
       </Box>
       <Box p={1}>
         <div>
           <div className={classes.identifier}>MRN</div>
-          <div>9526267</div>
+          <div className={classes.content}>9526267</div>
         </div>
       </Box>
     </Box>
@@ -71,7 +74,7 @@ function PatientTable() {
   const TimelineTableCell = withStyles((theme) => ({
     head: {
   		fontSize: '12px',
-  		color: '#666666',
+  		color: '#FFFFFF',
   		fontWeight: 'bold',
   		textAlign: 'left',
   		padding: '0px 0px 0px 10px',
@@ -82,6 +85,7 @@ function PatientTable() {
 	    fontSize: '12px',
 	  	textAlign: 'left',
 	    border: '0px',
+      color: '#FFF',
     },
   }))(TableCell);
   return (
@@ -99,7 +103,7 @@ function PatientTable() {
       </TableHead>
       <TableBody>
         {patientDetails.map((patientDetail) => (
-          <TableRow key={patientDetail.rank} style={patientDetail.rank % 2 ? { background: 'rgba(0, 0, 0, 0.03)' } : { background: '#FFFFFF' }}>
+          <TableRow key={patientDetail.rank} style={patientDetail.rank % 2 ? { background: '#283040' } : { background: '#2F3849' }}>
             <TimelineTableCell>{patientDetail.user}</TimelineTableCell>
             <TimelineTableCell>{patientDetail.type}</TimelineTableCell>
             <TimelineTableCell>{patientDetail.time}</TimelineTableCell>
@@ -119,6 +123,9 @@ function PatientCareDetails() {
   	paper: {
   		padding: '10px',
   		marginTop: '30px',
+      borderRadius: '0px',
+      boxShadow: 'none',
+      backgroundColor: '#2F3849',
   	},
   }))();
   return (
@@ -133,7 +140,7 @@ function PatientCareDetails() {
 function Timeline() {
   return (
     <Container maxWidth="xl">
-      <TitleBar name="High and Extreme Users > Patient Care Timeline" icon="/image/diversion-logo.png" />
+      <TitleBar name="Excessive Users > Patient Care Timeline" />
       	<Filters />
       	<PatientCareDetails />
     </Container>

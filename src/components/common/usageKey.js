@@ -9,12 +9,23 @@ import { withStyles, makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   usageCard: {
   	minWidth: '140px',
-  	backgroundColor: 'rgba(0, 0, 0, 0.03)',
+    background: '#283040',
   	fontSize: '12px',
   	paddingTop: '10px',
+    color: '#FFF',
   },
   itemBuffer: {
   	paddingTop: '2px',
+  },
+  breaker: {
+    borderTop: '1px solid #5E6A71',
+    boxShadow: 'none',
+    marginTop: '6px',
+    marginBottom: '6px',
+  },
+  card: {
+    borderRadius: '0px',
+    boxShadow: 'none',
   },
 }));
 
@@ -32,17 +43,17 @@ const UsageTitleTypography = withStyles((theme) => ({
     fontSize: '14px',
     paddingBottom: '2px',
     fontWeight: 'bold',
-    color: '#333333',
+    color: '#FFF',
   },
 }))(Typography);
 
 function UsageKey(props) {
   const classes = useStyles();
   return (
-    <Card>
+    <Card className={classes.card}>
       <CardContent className={classes.usageCard}>
         <UsageTitleTypography>Usage Key</UsageTitleTypography>
-        <hr />
+        <div className={classes.breaker} />
         <div className={classes.itemBuffer}>
           <FiberManualRecordIcon fontSize="small" style={{ color: '#CD130A' }} />
           <UsageTypography>Extreme</UsageTypography>
@@ -56,7 +67,7 @@ function UsageKey(props) {
           <UsageTypography>Moderate</UsageTypography>
         </div>
         <div className={classes.itemBuffer}>
-          <FiberManualRecordIcon fontSize="small" style={{ color: '#54B353' }} />
+          <FiberManualRecordIcon fontSize="small" style={{ color: '#46B555' }} />
           <UsageTypography>Normal</UsageTypography>
         </div>
       </CardContent>

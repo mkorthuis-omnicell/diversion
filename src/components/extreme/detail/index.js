@@ -13,13 +13,17 @@ import DetailTable from './detailTable';
 
 const useStyles = makeStyles((theme) => ({
   verticalLine: {
-  	borderLeft: '1px solid #DDDDDD',
+  	borderLeft: '1px solid #5E6A71',
   	height: '300px',
   	marginLeft: '20px',
   	marginRight: '20px',
   },
   deskDiv: {
 
+  },
+  noPadding: {
+    padding: '0px',
+    margin: '0px',
   },
 }));
 
@@ -47,7 +51,7 @@ const detailDiphen = [
 
 const rows = [
   createData('Hydromorphone', '#CD130A', '#FFC444', detailHydro),
-  createData('Diphenhydramine', '#54B353', '#FF8C3A', detailDiphen),
+  createData('Diphenhydramine', '#46B555', '#FF8C3A', detailDiphen),
 ];
 /** END SAMPLE DATA */
 
@@ -55,14 +59,19 @@ const UserDesktop = function (props) {
   const classes = makeStyles((theme) => ({
   	paper: {
   		padding: '15px;',
+      borderRadius: '0px',
+      background: '#283040',
+      boxShadow: 'none',
+      color: '#FFF',
   	},
   	user: {
-  		fontSize: '16px',
+  		fontSize: '20px',
   		fontWeight: '500',
+      color: '#46B555',
   	},
   	title: {
-  		fontSize: '13px',
-  		color: '#333333',
+  		fontSize: '16px',
+      color: '#FFF',
   		paddingBottom: '30px',
   	},
   }))();
@@ -85,16 +94,16 @@ function Detail() {
   const classes = useStyles();
   return (
     <Container maxWidth="xl">
-      <TitleBar name="High and Extreme Users > User Detail" icon="/image/diversion-logo.png" />
+      <TitleBar name="Excessive Users > User Detail" />
       <Hidden smDown>
-        <Box display="flex" p={1}>
-          <Box p={1} flexGrow={1}>
+        <Box display="flex" p={1} className={classes.noPadding}>
+          <Box p={1} flexGrow={1} className={classes.noPadding}>
             <UserDesktop rows={rows} />
           </Box>
-          <Box p={1}>
+          <Box p={1} className={classes.noPadding}>
             <div className={classes.verticalLine} />
           </Box>
-          <Box p={1}>
+          <Box p={1} className={classes.noPadding}>
             <UsageKey />
           </Box>
         </Box>

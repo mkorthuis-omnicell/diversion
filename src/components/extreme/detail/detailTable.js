@@ -31,23 +31,25 @@ const DetailRow = function (props) {
   	},
   	title: {
   		fontSize: '12px',
-  		color: '#666666',
+      color: '#FFF',
   		fontWeight: 'bold',
   	},
   	titleCenter: {
   		fontSize: '12px',
-  		color: '#666666',
+      color: '#FFF',
   		fontWeight: 'bold',
   		textAlign: 'center',
   	},
   	detail: {
   		fontSize: '12px',
   		paddingTop: '5px',
+      color: '#FFF',
   	},
   	detailCenter: {
   		fontSize: '12px',
   		textAlign: 'center',
   		paddingTop: '5px',
+      color: '#FFF',
   	},
   	imageCenter: {
   		textAlign: 'center',
@@ -93,19 +95,20 @@ const DetailTable = function (props) {
   const classes = makeStyles((theme) => ({
   	headerCell: {
   		fontSize: '12px',
-  		color: '#666666',
+      color: '#FFF',
   		fontWeight: 'bold',
   		padding: '0px',
   		textAlign: 'center',
   	},
   	firstMainCell: {
   		fontSize: '16px',
-  		backgroundColor: 'rgba(0, 0, 0, 0.03)',
+  		backgroundColor: '#2F3849',
   		borderBottom: '0px',
+      color: '#FFF',
   	},
     mainCell: {
   		textAlign: 'center',
-  		backgroundColor: 'rgba(0, 0, 0, 0.03)',
+  		backgroundColor: '#2F3849',
   		borderBottom: '0px',
   	},
   	emptyCell: {

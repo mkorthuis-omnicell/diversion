@@ -15,24 +15,27 @@ import { withStyles, makeStyles } from '@material-ui/core/styles';
 
 const ContentTableCell = withStyles((theme) => ({
   head: {
-    color: '#333333',
+    color: '#FFFFFF',
     fontWeight: 'bold',
-
+    background: '#283040',
     paddingTop: '8px',
     paddingBottom: '8px',
+    borderBottom: '0px',
   },
   body: {
     fontSize: 14,
     paddingTop: '12px',
     paddingBottom: '12px',
     cursor: 'pointer',
+    color: '#FFFFFF',
+    borderBottom: '0px',
   },
 }))(TableCell);
 
 
 const useStyles = makeStyles((theme) => ({
   tableContainer: {
-    boxShadow: '0px 2px 10px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12)',
+    boxShadow: 'none',
   },
   image: {
     height: '30px',
@@ -63,7 +66,7 @@ function UserTable(props) {
         </TableHead>
         <TableBody>
           {props.rows.map((row) => (
-            <TableRow hover key={row.user} onClick={(event) => handleClick(event, row.name)}>
+            <TableRow hover key={row.user} onClick={(event) => handleClick(event, row.name)} style={row.rank % 2 ? { background: '#2F3849' } : { background: '#283040' }}>
               <ContentTableCell>{row.user}</ContentTableCell>
               <ContentTableCell>{row.score}</ContentTableCell>
               <ContentTableCell>{row.type}</ContentTableCell>

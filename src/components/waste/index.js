@@ -29,7 +29,7 @@ function WasteTable() {
   const TimelineTableCell = withStyles((theme) => ({
     head: {
   		fontSize: '12px',
-  		color: '#666666',
+  		color: '#FFFFFF',
   		fontWeight: 'bold',
   		textAlign: 'left',
   		padding: '0px 0px 0px 10px',
@@ -40,6 +40,7 @@ function WasteTable() {
 	    fontSize: '12px',
 	  	textAlign: 'left',
 	    border: '0px',
+      color: '#FFFFFF',
     },
   }))(TableCell);
   return (
@@ -60,7 +61,7 @@ function WasteTable() {
       </TableHead>
       <TableBody>
         {wasteDetails.map((wasteDetail) => (
-          <TableRow key={wasteDetail.rank} style={wasteDetail.rank % 2 ? { background: 'rgba(0, 0, 0, 0.03)' } : { background: '#FFFFFF' }}>
+          <TableRow key={wasteDetail.rank} style={wasteDetail.rank % 2 ? { background: '#283040' } : { background: '#2F3849' }}>
             <TimelineTableCell>{wasteDetail.date}</TimelineTableCell>
             <TimelineTableCell>{wasteDetail.user}</TimelineTableCell>
             <TimelineTableCell>{wasteDetail.item}</TimelineTableCell>
@@ -82,12 +83,13 @@ const Filters = function () {
   const classes = makeStyles((theme) => ({
   	text: {
   		fontSize: '14px',
-  		color: '#666666',
+  		color: '#FFFFFF',
   		padding: '0px 10px 0px 0px',
   		margin: '0px',
   	},
   	icon: {
   		fontSize: '1rem',
+      color: '#FFFFFF',
   	},
   	box: {
   		padding: '0px',
@@ -115,7 +117,9 @@ function WasteDetails() {
   const classes = makeStyles((theme) => ({
   	paper: {
   		padding: '10px',
-  		marginTop: '30px',
+      borderRadius: '0px',
+      backgroundColor: '#2F3849',
+      boxShadow: 'none',
   	},
   }))();
   return (

@@ -12,13 +12,13 @@ import reducers from './reducers';
 import initialState from './store/initialState';
 
 import TopNav from './components/common/topNav';
-import SecondNav from './components/common/secondNav';
 import Route from './components/route';
 
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
     backgroundColor: '#1B4104',
+    boxShadow: 'none',
   },
   grow: {
     flexGrow: 1,
@@ -34,7 +34,6 @@ function App() {
         <div className={classes.grow}>
           <AppBar position="static" className={classes.appBar}>
             <TopNav />
-            <SecondNav />
           </AppBar>
           <Route />
         </div>

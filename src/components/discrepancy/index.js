@@ -46,7 +46,7 @@ function DiscrepancyTable(props) {
   const TimelineTableCell = withStyles((theme) => ({
     head: {
   		fontSize: '12px',
-  		color: '#666666',
+  		color: '#FFF',
   		fontWeight: 'bold',
   		textAlign: 'left',
   		padding: '0px 0px 0px 10px',
@@ -57,6 +57,7 @@ function DiscrepancyTable(props) {
 	    fontSize: '12px',
 	  	textAlign: 'left',
 	    border: '0px',
+      color: '#FFF',
     },
   }))(TableCell);
 
@@ -75,7 +76,7 @@ function DiscrepancyTable(props) {
       </TableHead>
       <TableBody>
         {props.details.map((detail) => (
-          <TableRow key={detail.rank} style={detail.rank % 2 ? { background: 'rgba(0, 0, 0, 0.03)' } : { background: '#FFFFFF' }}>
+          <TableRow key={detail.rank} style={detail.rank % 2 ? { background: '#283040' } : { background: '#2F3849' }}>
             <TimelineTableCell>{detail.date}</TimelineTableCell>
             <TimelineTableCell>{detail.type}</TimelineTableCell>
             <TimelineTableCell>{detail.beforeQty}</TimelineTableCell>
@@ -93,16 +94,17 @@ function DiscrepancyTable(props) {
 function DiscrepancyTitle(props) {
   const classes = makeStyles((theme) => ({
   	binText: {
-  		color: '#54B353',
+  		color: '#FFFFFF',
   		fontSize: '14px',
   	},
   	titleText: {
   		fontSize: '14px',
-  		color: 'rgb(255, 140, 58)',
+  		color: '#46B555',
   		fontWeight: 'bold',
   	},
   	medText: {
   		paddingTop: '0px',
+      color: '#FFFFFF',
   		paddingBottom: '16px',
   	},
   	mainBox: {
@@ -128,11 +130,21 @@ function DiscrepancyDetails(props) {
   const classes = makeStyles((theme) => ({
   	paper: {
   		padding: '10px',
-  		marginTop: '30px',
+      borderRadius: '0px',
+      backgroundColor: '#2F3849',
+      boxShadow: 'none',
+      marginTop: '30px',
   	},
+    paperOne: {
+      padding: '10px',
+      borderRadius: '0px',
+      backgroundColor: '#2F3849',
+      boxShadow: 'none',
+    },
   }))();
   return (
-    <Paper elevation={3} className={classes.paper}>
+
+    <Paper elevation={3} className={unresolved.rank === 1 ? classes.paperOne : classes.paper}>
       <DiscrepancyTitle title={unresolved.title} med={unresolved.med} bin={unresolved.bin} />
       <DiscrepancyTable details={unresolved.details} />
     </Paper>

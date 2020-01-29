@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
   message: {
     minWidth: '300px',
-    backgroundColor: 'rgb(205, 19, 10)',
+    backgroundColor: '#E73356',
     paddingTop: '10px',
     paddingBottom: '10px',
     textAlign: 'center',
@@ -34,22 +34,31 @@ const useStyles = makeStyles((theme) => ({
 const LoginInputLabel = withStyles({
   root: {
     textAlign: 'left',
+    color: '#FFF',
   },
 })(InputLabel);
 
 const LoginTextField = withStyles({
   root: {
     width: '100%',
-    paddingBottom: '2px',
+    '& .MuiInput-underline:after': {
+      borderBottomColor: '#FFF',
+    },
+    '& .MuiInput-underline:before': {
+      borderBottomColor: '#FFF !important',
+    },
+    '& .MuiInput-input': {
+      color: '#FFF',
+    },
   },
 })(TextField);
 
 const LoginButton = withStyles({
   root: {
     width: '100%',
-    backgroundColor: '#1B4104',
+    backgroundColor: '#46B555',
     '&:hover': {
-      backgroundColor: '#466533',
+      backgroundColor: '#46B555',
     },
   },
 })(Button);
@@ -57,9 +66,14 @@ const LoginButton = withStyles({
 const PasswordButton = withStyles({
   root: {
     width: '100%',
-    backgroundColor: '#BBBBBB',
+    backgroundColor: '#1E2532',
+    color: '#339CF2',
+    border: '1px solid #1E2532',
+    boxShadow: 'none',
     '&:hover': {
-      backgroundColor: '#999999',
+      backgroundColor: '#1E2532',
+      border: '1px solid #339CF2',
+      boxShadow: 'none',
     },
   },
 })(Button);
